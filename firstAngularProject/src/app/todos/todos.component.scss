@@ -1,0 +1,12 @@
+.todos {
+    &__item{
+        display: flex;
+        align-items: "center";
+        gap: 10px; 
+    }
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
