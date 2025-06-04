@@ -1,0 +1,30 @@
+<h1>To-Do List</h1>
+@if (!todoItems().length) {
+    <p>Loading...</p>
+}
+<!-- when the length of the todoItems list is zero (i.e. while it is loading from the API) loading is displayed using the @if operator-->
+@else{
+    <form>
+        <label>Filter Todos</label>
+        <input 
+            name = "searchTerm"
+            placeholder="Search todos..." 
+            [(ngModel)]="searchTerm"
+        >
+    </form>
+    <ol class="todos">
+    @for (item of todoItems() | filterTodos : searchTerm(); track item.id) {
+       <app-todo-item 
+        (todoToggle)="updateTodoItem($event)"
+        [todo] = "item"
+         /> 
+       <!-- each todo item from the list is passed into the [todo] element in the todo-item component.
+        this is a required input, so a todo must be passed in
+        the [todo] element is bound to the todo item in the list, so any time a change happens 
+        to the parent list, the todo is updated-->
+         <!-- the (todoToggle) is a custom event listener that listens for the checkbox toggle event from the 
+          todo item component, and calls the updateTodoItem method in the parent component--> 
+    }   
+    </ol>
+}
+<!-- after the list loads, the loading element is fully removed from the DOM, not just hidden, and is replaced with the list-->

@@ -1,0 +1,21 @@
+<li 
+    appHighlightCompletedTodos
+    [isCompleted]= "todo().completed"
+    class="todos__item"
+> 
+<!-- the isCompleted of the Highligted-completed-todos directive is bound to the todo().completed attribute of the todo item
+the directive is imported in the TS file. the class tag groups all the todo items and allows us to edit the style in CSS-->
+    <input 
+        id="todo-{{todo().id}}"
+        type="checkbox" 
+        [checked] = "todo().completed" 
+        (change)="this.todoClicked()"
+    >   <!-- [checked] binds the value of the checkbox i.e. if its checked or not to the value of todo().completed. 
+         whenever the value of todo().completed changes, the checkbox updates automatically.   
+            it only works one direction, the value of todo().completed is unaffected.-->
+        <!-- (change) allows us to update the value of todo.completed when the box is checked. the (change) keyword listens 
+         for changes in the input, and does whatever action is assigned, in this case todoClicked().-->
+
+
+    <label for="todo-{{todo().id}}"> {{todo().title}}</label>
+</li>

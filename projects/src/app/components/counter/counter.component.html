@@ -1,0 +1,9 @@
+<p>counter value: {{count()}}</p>
+<!-- the {{}} syntax outputs the value of the count signal rather than displaying the plain text-->
+
+<div>
+  <button (click)="increment()">Increment</button>
+  <!---the (click) event listener listens for the the button to be clicked and activates the function-->
+  <button (click)="decrement()">Decrement</button>
+  <button (click)="reset()">Reset</button>
+</div>
