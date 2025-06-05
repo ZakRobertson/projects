@@ -1,0 +1,16 @@
+@if (!enterPressed()) {
+    <p>Hello! What's your name?</p>
+    <input 
+        type="text" 
+        [(ngModel)]="name" 
+        placeholder="Enter your name" 
+        (keydown.enter)="enteredName()"
+        />
+    @if (name().length){
+        <p> Press enter to submit</p>
+    }
+} @else{
+    <p>Hello, {{name()}}!</p>
+    <button (click)="undo()">That's not my name!</button>
+}
+
