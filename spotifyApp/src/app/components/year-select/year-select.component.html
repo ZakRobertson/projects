@@ -1,0 +1,7 @@
+<label for="year">Select Year:
+  <select id="year" formControlName="year" (change)="onYearChange($event)">
+    <option value="" disabled selected>Select a year</option>
+    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    <option value="all">All Years</option>
+  </select>
+</label>

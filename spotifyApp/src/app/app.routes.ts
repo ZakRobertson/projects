@@ -9,5 +9,9 @@ export const routes: Routes = [
     , {
         path: 'spotifystats',
         loadComponent: () => import('./spotifystats/spotifystats.component').then(m => m.SpotifyStatsComponent)
+    },
+    {
+        path: 'spotifystats/:year',
+        loadComponent: () => import('./spotifystats/spotifystats.component').then(m => m.SpotifyStatsComponent)
     }
 ];
