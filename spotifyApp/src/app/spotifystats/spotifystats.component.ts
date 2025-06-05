@@ -7,13 +7,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './spotifystats.component.scss'
 })
 export class SpotifyStatsComponent {
-  year = 'all-time';
+  timeframe: string | null = null;
 
   constructor(private route: ActivatedRoute) {
   this.route.params.subscribe(params => {
-    if (params['year']) {
-    this.year = params['year'];
-    } 
+    if (params['timeframe'] == 'year') {
+      this.timeframe = "last year"
+    } else if (params['timeframe'] == '6-months') {
+      this.timeframe = "last 6 months";
+    } else {
+      this.timeframe = "last month";
+    }
   });
 }
 }

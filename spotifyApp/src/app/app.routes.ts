@@ -11,7 +11,7 @@ export const routes: Routes = [
         loadComponent: () => import('./spotifystats/spotifystats.component').then(m => m.SpotifyStatsComponent)
     },
     {
-        path: 'spotifystats/:year',
+        path: 'spotifystats/:timeframe',
         loadComponent: () => import('./spotifystats/spotifystats.component').then(m => m.SpotifyStatsComponent)
     }
 ];
