@@ -12,7 +12,7 @@ export class HomeComponent {
   nameEntered = signal(false);
   canNavigate = signal(this.nameEntered());
   onNameEntered(entered: boolean) {
-    this.nameEntered.set(entered);
+    this.nameEntered.set(entered); //buggy
   }
 
   
