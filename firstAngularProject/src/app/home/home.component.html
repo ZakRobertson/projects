@@ -1,0 +1,6 @@
+<app-greeting [message]="homeMessage()"/>
+<app-counter />
+<input type="text" (keyup)="keyUpHandler($event)" />
+<!--the $event variable represents the specific DOM event, and has values like which
+key is being pressed, etc. (keyup) is an event listener which triggers the function 
+at the end of each keystroke-->
