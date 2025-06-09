@@ -22,4 +22,8 @@ export class MasterService {
     getEnquiries() {
       return this.http.get('https://localhost:7209/api/EnquiryMaster/GetAllEnquiries');
     }
+
+    deleteEnquiry(enquiryId: number) {
+      return this.http.delete(`https://localhost:7209/api/EnquiryMaster/DeleteEnquiry/${enquiryId}`);
+    }
 }

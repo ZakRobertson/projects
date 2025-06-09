@@ -29,6 +29,9 @@
         <td>{{ enquiry.email }}</td>
         <td>{{ enquiry.enquiryMessage }}</td>
         <td>{{ enquiry.resolution }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editEnquiry(enquiry)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteEnquiry(enquiry.enquiryId)">Delete</button>
       </tr>
     }
   </tbody>

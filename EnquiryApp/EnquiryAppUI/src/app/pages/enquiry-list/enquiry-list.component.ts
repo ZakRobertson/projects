@@ -26,6 +26,20 @@ export class EnquiryListComponent implements OnInit {
     return status ? status.statusName : 'Unknown Status';
   }
 
+  deleteEnquiry(enquiryId: number): void {
+    this.MasterSrv.deleteEnquiry(enquiryId).subscribe({
+      next: () => {
+        console.log(`Enquiry ${enquiryId} deleted successfully`);
+        this.enquiryList = this.enquiryList.filter(enquiry => enquiry.enquiryId !== enquiryId)
+      }, error: (error) => {
+        console.error('Error deleting enquiry:', error);
+      }
+    });
+  }
+
+  editEnquiry(enquiry: Enquiry): void {
+  }
+
   ngOnInit(): void {
     this.MasterSrv.getTypes().subscribe({
       next: (types: any[]) => {

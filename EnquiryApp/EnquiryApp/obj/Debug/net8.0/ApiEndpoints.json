@@ -28,7 +28,7 @@
   {
     "ContainingType": "EnquiryApp.Controllers.EnquiryMasterController",
     "Method": "DeleteEnquiry",
-    "RelativePath": "api/EnquiryMaster/DeleteEnquiry",
+    "RelativePath": "api/EnquiryMaster/DeleteEnquiry/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -36,7 +36,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [

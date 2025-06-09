@@ -64,7 +64,7 @@ namespace EnquiryApp.Controllers
             return existingEnquiry;
         }
 
-        [HttpDelete("DeleteEnquiry")]
+        [HttpDelete("DeleteEnquiry/{id}")]
         public bool DeleteEnquiry(int id)
         {
             //deletes an enquiry from the database
