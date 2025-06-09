@@ -1,5 +1,6 @@
 ﻿using Azure.Identity;
 using EnquiryApp.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace EnquiryApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowCors")]
     public class EnquiryMasterController : ControllerBase
     {
         private readonly EnquiryDBContext _context;
@@ -20,7 +22,7 @@ namespace EnquiryApp.Controllers
         public List<EnquiryStatus> GetEnquiryStatus()
         {
             //returns all the enquiry statuses from the database
-            return _context.EnquiryStatuses.ToList();
+            return _context.EnquiryStatus.ToList();
         }
 
         [HttpGet("GetAllTypes")]
@@ -31,7 +33,7 @@ namespace EnquiryApp.Controllers
         }
 
         [HttpGet("GetAllEnquiries")]
-        public List<EnquiryModel> GetAllEnquiries()
+        public List<Enquiry> GetAllEnquiries()
         {
             //returns all the enquiries from the database
             return _context.EnquiryModel.ToList();
@@ -39,7 +41,7 @@ namespace EnquiryApp.Controllers
         //route and method names can be different
 
         [HttpPost("CreateNewEnquiry")] // <-- route name
-        public EnquiryModel CreateNewEnquiry([FromBody] EnquiryModel enquiry) //CreateNewEnquiry is method name in this context
+        public Enquiry CreateNewEnquiry([FromBody] Enquiry enquiry) //CreateNewEnquiry is method name in this context
         {
             //creates a new enquiry in the database
             enquiry.createdDate = DateTime.Now; //sets the created date to the current date and time
@@ -49,7 +51,7 @@ namespace EnquiryApp.Controllers
         }
 
         [HttpPut("UpdateEnquiry")]
-        public EnquiryModel UpdateEnquiry([FromBody] EnquiryModel enquiry)
+        public Enquiry UpdateEnquiry([FromBody] Enquiry enquiry)
         {
             //updates an existing enquiry in the database
             var existingEnquiry = _context.EnquiryModel.Find(enquiry.enquiryId);

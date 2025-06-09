@@ -316,8 +316,8 @@
             "nullable": true
           },
           "mobileNo": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "email": {
             "type": "string",

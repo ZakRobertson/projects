@@ -1,0 +1,35 @@
+<div class="form-header mt-3 mx-3 align-items-center">
+            <h2>Enquiry List</h2>
+        </div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Created Date</th>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Message</th>
+      <th>Resolution</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (enquiry of enquiryList; track enquiry.id) {
+      <tr>
+        <td>{{enquiry.createdDate | date}}</td>
+        <td>{{ enquiry.enquiryId }}</td>
+        <td>{{getTypeName(enquiry.enquiryTypeId)}}</td>
+        <td>{{getStatusName(enquiry.enquiryStatusId)}}</td>
+        <td>{{ enquiry.customerName }}</td>
+        <td>{{ enquiry.mobileNo }}</td>
+        <td>{{ enquiry.email }}</td>
+        <td>{{ enquiry.enquiryMessage }}</td>
+        <td>{{ enquiry.resolution }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

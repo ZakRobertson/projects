@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EnquiryApp.Model
 {
     [Table("Enquiry")] //have to specify the table name b/c it differs from the class name
-    public class EnquiryModel
+    public class Enquiry
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int enquiryId { get; set; }

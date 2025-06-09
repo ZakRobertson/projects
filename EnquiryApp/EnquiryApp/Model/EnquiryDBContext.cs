@@ -8,9 +8,9 @@ namespace EnquiryApp.Model
         public EnquiryDBContext(DbContextOptions<EnquiryDBContext> options) : base(options)
         {
         }
-        public DbSet<EnquiryModel> EnquiryModel { get; set; }
+        public DbSet<Enquiry> EnquiryModel { get; set; }
         public DbSet<EnquiryType> EnquiryType { get; set; }
-        public DbSet<EnquiryStatus> EnquiryStatuses { get; set; }
+        public DbSet<EnquiryStatus> EnquiryStatus{ get; set; }
         //tells which tables you are going to use in the database
     }
 }

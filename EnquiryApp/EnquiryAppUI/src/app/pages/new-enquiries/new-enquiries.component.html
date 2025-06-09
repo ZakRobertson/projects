@@ -1,0 +1,76 @@
+<div class="parent">
+    <form [formGroup]="enquiryForm" (ngSubmit) = "handleSubmit()" 
+    class = "form-container d-flex flex-column justify-items-center">
+        <div class="form-header mt-3 mx-3">
+            <h2>New Enquiry</h2>
+        </div>
+
+        <div class="mx-3 mb-3 d-flex flex-column gap-3">
+            <select class ="form-select mt-2" formControlName="enquiryType">
+                <option [value]="null" selected disabled>Select Enquiry Type</option>
+                @for (type of typeList | async; track $index) {
+                    <option [value]="type.typeId">{{ type.typeName }}</option>
+                }
+            </select>
+            @if (enquiryForm.get('enquiryType')?.invalid && 
+            (enquiryForm.get('enquiryType')?.touched || submitted)){
+                <div class="text-danger small">
+                    Enquiry Type is required.
+                </div>
+            }
+
+            <select class ="form-select" formControlName="enquiryStatus">
+                <option [value]="null" selected disabled>Select Status</option>
+                @for (status of statusList | async; track $index) {
+                    <option [value]="status.statusId">{{ status.statusName }}</option>
+                }
+            </select>
+            @if (enquiryForm.get('enquiryStatus')?.invalid && 
+            (enquiryForm.get('enquiryStatus')?.touched || submitted)) {
+                <div class="text-danger small">
+                    Status is required.
+                </div>
+            }
+
+            <input type="text" class="form-control" placeholder="First Name" formControlName="firstName" />
+            @if (enquiryForm.get('firstName')?.invalid && (enquiryForm.get('firstName')?.touched || submitted)) { 
+                <div class="text-danger small">
+                    First Name is required.
+                </div>
+            }
+
+            <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName"/>
+            @if (enquiryForm.get('lastName')?.invalid && (enquiryForm.get('lastName')?.touched || submitted)){
+                <div class="text-danger small">
+                    Last Name is required.
+                </div>
+            }
+
+            <input type="tel" class="form-control" placeholder="Phone Number" formControlName="phoneNo"/>
+            @if (enquiryForm.get('phoneNo')?.invalid && (enquiryForm.get('phoneNo')?.touched || submitted)){
+                <div class="text-danger small">
+                    Phone Number is required.
+                </div>
+            }
+
+            <input type="email" class="form-control" placeholder="Email" formControlName="email"/>
+            @if(enquiryForm.get('email')?.invalid && (enquiryForm.get('email')?.touched || submitted)){
+                <div class="text-danger small">
+                    Please enter a valid email address.
+                </div>
+            }
+
+            <textarea class="form-control" placeholder="Message" rows="4" formControlName="message"></textarea>
+            @if(enquiryForm.get('message')?.invalid && (enquiryForm.get('message')?.touched || submitted)){
+                <div class="text-danger small">
+                    Message is required.
+                </div>
+            }
+
+            <textarea class="form-control" placeholder="Resolution" rows="4" formControlName="resolution"></textarea>
+
+        </div>
+        <input type="submit" class="btn btn-primary mx-3" value="Submit" />
+        <input type="reset" class="btn btn-secondary mx-3 my-3" value="Reset" />
+    </form>
+</div>
